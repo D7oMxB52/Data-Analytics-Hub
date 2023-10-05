@@ -22,6 +22,7 @@ public class DatabaseController {
                 FXMLLoader loader = new FXMLLoader(DatabaseController.class.getResource(fxmlFile));
                 root = loader.load();
                 MainMenuController mainMenuController = loader.getController();
+                System.out.println(username);
                 mainMenuController.setUserInfo(username);
             }   catch (IOException e){
                 e.printStackTrace();
@@ -64,22 +65,28 @@ public class DatabaseController {
                 alert.show();
             }
 
-            // in case the username does not exist, the database will signup the user
+            // in case the username does not exist, the database will sign up the user
             else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username, password, firstName, lastName VALUES (?, ?, ?, ? ))");
+                psInsert = connection.prepareStatement("INSERT INTO users (username, password, first_name, last_name) VALUES (?, ?, ?, ? )");
                 psInsert.setString(1,username);
                 psInsert.setString(2,password);
                 psInsert.setString(3,firstName);
                 psInsert.setString(4,lastName);
-                psInsert.executeQuery();
+                psInsert.executeUpdate();
 
 
-                changeScene(event, "login-view.fxml","Welcomee", username);
+                changeScene(event, "mainmenu-view.fxml","Welcomee", username);
             }
-        } catch (SQLException e){
+        }
+        catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("The username is already in use. Please choose another one.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("user already exist");
+            alert.show();
+        }
+        catch (SQLException e){
             e.printStackTrace();
         }
-
         // to close the connection to avoid memory leaks
           finally {
             if (resultSet != null) {
@@ -141,11 +148,11 @@ public class DatabaseController {
             else {
                 while (resultSet.next()){
                     String fetchPassword = resultSet.getString("password");
-                    String fetchFirstName = resultSet.getString("firstName");
-                    String fetchLastName = resultSet.getString("lastName");
+                    System.out.println(fetchPassword);
 
                     // if the password is correct:
                     if (fetchPassword.equals(password)){
+                        System.out.println(fetchPassword.equals(password));
                         changeScene(event, "mainmenu-view.fxml", "Welcome!", username);
                     }
                     // if the password is incorrect:

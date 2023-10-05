@@ -37,7 +37,7 @@
       <TextField fx:id="tf_password" layoutX="258.0" layoutY="201.0" />
       <TextField fx:id="tf_firstName" layoutX="258.0" layoutY="241.0" />
       <TextField fx:id="tf_lastName" layoutX="258.0" layoutY="277.0" />
-      <Button fx:id="signupInfo_button" layoutX="381.0" layoutY="320.0" mnemonicParsing="false" text="Sign up!">
+      <Button fx:id="singingUp_button" layoutX="381.0" layoutY="320.0" mnemonicParsing="false" text="Sign up!">
          <font>
             <Font size="17.0" />
          </font>

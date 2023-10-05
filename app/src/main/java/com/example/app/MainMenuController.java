@@ -13,23 +13,23 @@ import java.util.ResourceBundle;
 public class MainMenuController implements Initializable {
 
     @FXML
-    private Label filled_firstName;
+    private Label filled_username;
+
 
     @FXML
     private Button logout_button;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         logout_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Logged in", null);
+                DatabaseController.changeScene(actionEvent, "landing-view.fxml","Logged out", null);
             }
         });
     }
 
-    public void setUserInfo(String firstName ){
-        filled_firstName.setText(firstName);
+    public void setUserInfo(String username){
+        filled_username.setText(username);
     }
 }

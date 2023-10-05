@@ -119,7 +119,7 @@ public class DatabaseController {
 
 
     // Login Method
-    public static void login(ActionEvent event, String username, String passowrd){
+    public static void login(ActionEvent event, String username, String password){
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -145,7 +145,7 @@ public class DatabaseController {
                     String fetchLastName = resultSet.getString("lastName");
 
                     // if the password is correct:
-                    if (fetchPassword.equals(passowrd)){
+                    if (fetchPassword.equals(password)){
                         changeScene(event, "mainmenu-view.fxml", "Welcome!", username);
                     }
                     // if the password is incorrect:

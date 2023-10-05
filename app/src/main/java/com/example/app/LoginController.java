@@ -14,7 +14,7 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private Button loggingin_button;
+    private Button logging_button;
 
     @FXML
     private Button backToMenu_button;
@@ -28,13 +28,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // login functionality
-        loggingin_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                DatabaseController.login(actionEvent, tf_username.getText(), tf_password.getText());
-            }
-        });
+
 
         backToMenu_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -42,6 +36,17 @@ public class LoginController implements Initializable {
                 DatabaseController.changeScene(actionEvent ,"landing-view.fxml","Landing Page",null);
             }
         });
+
+
+        // login functionality
+        logging_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DatabaseController.login(actionEvent, tf_username.getText(), tf_password.getText());
+            }
+        });
+
+
 
     }
 }

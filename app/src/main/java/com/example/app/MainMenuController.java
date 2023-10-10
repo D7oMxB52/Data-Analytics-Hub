@@ -50,6 +50,13 @@ public class MainMenuController implements Initializable {
                 DatabaseController.changeScene(event, "add_new_post-view.fxml", "Add new Post", null);
             }
         });
+
+        getPostById_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DatabaseController.changeScene(event, "get_post_by_id-view.fxml", "Get User's Post", null);
+            }
+        });
     }
 
     public void setUserInfo(String username){

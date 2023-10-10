@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,7 +19,6 @@ import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DatabaseController {
 
@@ -327,7 +325,7 @@ public class DatabaseController {
 
 
 
-    public static void getPostById(ActionEvent event, String postId){
+    public static Posts getPostById(ActionEvent event, String postId){
         String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
         Path pathToCsv = Paths.get(csvFile);
         String line = "";
@@ -337,7 +335,6 @@ public class DatabaseController {
         try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
             // skipping the header
             br.readLine();
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HH:mm");
             while ((line = br.readLine()) != null) {
                 String[] fields = line.split(delimiter);
@@ -345,12 +342,14 @@ public class DatabaseController {
             }
 
             Search searchById = new Search(postId , postsList);
-            System.out.println(searchById.searchById());
+            return searchById.searchById();
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return null;
     }
 
 }

@@ -1,7 +1,5 @@
 package com.example.app.functions;
 
-import java.time.LocalDateTime;
-
 public class Posts {
     int id;
     String content;

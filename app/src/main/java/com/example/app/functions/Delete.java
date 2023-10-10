@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Delete extends Search{
     public Delete(int numId, List<Posts> postsList) {
-        super(numId, postsList);
+        super(String.valueOf(numId), postsList);
         this.numId = numId;
         this.postsList = postsList;
     }

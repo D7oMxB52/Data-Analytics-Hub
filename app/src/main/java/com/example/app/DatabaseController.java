@@ -1,5 +1,7 @@
 package com.example.app;
 
+import com.example.app.functions.Posts;
+import com.example.app.functions.Search;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,12 +9,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class DatabaseController {
 
+
     public static void changeScene(ActionEvent event, String fxmlFile,String title, String username){
+
 
         Parent root = null;
 
@@ -272,6 +286,71 @@ public class DatabaseController {
             }
 
         }
+    }
+
+    public static void addNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date){
+        String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
+        Path pathToCsv = Paths.get(csvFile);
+        String line = "";
+        String delimiter = ",";
+        List<Posts> postsList = new ArrayList<>();
+        // reading csv file
+        try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
+            // skipping the header
+            br.readLine();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(delimiter);
+                postsList.add(new Posts(Integer.parseInt(fields[0]), fields[1], fields[2], Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]));
+            }
+
+            Posts newPost = new Posts();
+            newPost.setId(Integer.parseInt(postId));
+            newPost.setAuthor(author);
+            newPost.setContent(content);
+            newPost.setShares(Integer.parseInt(shares));
+            newPost.setLikes(Integer.parseInt(likes));
+            newPost.setDateTime(date);
+            postsList.add(newPost);
+
+            System.out.println("The post has been added to the collection!");
+
+            System.out.println(newPost);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+    public static void getPostById(ActionEvent event, String postId){
+        String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
+        Path pathToCsv = Paths.get(csvFile);
+        String line = "";
+        String delimiter = ",";
+        List<Posts> postsList = new ArrayList<>();
+        // reading csv file
+        try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
+            // skipping the header
+            br.readLine();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(delimiter);
+                postsList.add(new Posts(Integer.parseInt(fields[0]), fields[1], fields[2], Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]));
+            }
+
+            Search searchById = new Search(postId , postsList);
+            System.out.println(searchById.searchById());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

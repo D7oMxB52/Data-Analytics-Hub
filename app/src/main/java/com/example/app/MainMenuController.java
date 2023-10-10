@@ -20,6 +20,14 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private Button editprofile_button;
+
+    @FXML
+    private Button addNewPost_button;
+
+    @FXML
+    private Button getPostById_button;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logout_button.setOnAction(new EventHandler<ActionEvent>() {
@@ -33,6 +41,13 @@ public class MainMenuController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 DatabaseController.changeScene(actionEvent, "profile_edit-view.fxml","Edit profile", null);
+            }
+        });
+
+        addNewPost_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DatabaseController.changeScene(event, "add_new_post-view.fxml", "Add new Post", null);
             }
         });
     }

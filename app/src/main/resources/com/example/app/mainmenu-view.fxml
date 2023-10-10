@@ -27,5 +27,15 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="addNewPost_button" layoutX="197.0" layoutY="140.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Add new post">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="getPostById_button" layoutX="197.0" layoutY="190.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="get post by ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

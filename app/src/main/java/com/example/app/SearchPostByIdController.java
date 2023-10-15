@@ -39,6 +39,9 @@ public class SearchPostByIdController implements Initializable {
     @FXML
     private Button searchPostById_Button;
 
+    @FXML
+    private Button backToMainMenu_button;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -54,6 +57,13 @@ public class SearchPostByIdController implements Initializable {
                 System.out.println(fetchedPost.getDateTime());
 
 
+            }
+        });
+
+        backToMainMenu_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcome", null);
             }
         });
 

@@ -27,6 +27,9 @@ public class MainMenuController implements Initializable {
     @FXML
     private Button getPostById_button;
 
+    @FXML
+    private Button deletePostById_button;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,6 +58,13 @@ public class MainMenuController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DatabaseController.changeScene(event, "get_post_by_id-view.fxml", "Get User's Post", null);
+            }
+        });
+
+        deletePostById_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DatabaseController.changeScene(event, "delete_post-view.fxml", "Delete Post", null);
             }
         });
     }

@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676377d6-87b9-479b-aa67-7deee5ed1006" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/DeletePostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/com/example/app/delete_post-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app/AddNewPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/AddNewPostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app/posts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/posts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/com/example/app/mainmenu-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/com/example/app/mainmenu-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

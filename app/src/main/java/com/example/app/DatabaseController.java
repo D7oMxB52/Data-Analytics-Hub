@@ -323,27 +323,23 @@ public class DatabaseController {
                 if (Files.size(Paths.get(csvFile)) == 0) {
                     // If the file is empty, create a BufferedWriter to write to the file
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile, true))) {
-                        // Writing the header to the CSV file
+                        // Writing the header to the CSV file in case there is new file
                         writer.append("ID,content,author,likes,shares,date-time");
-                        // Adding a new line after the header
                         writer.newLine();
-                        System.out.println("INSIDE HEADERS");
                     }
                 }
 
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile, true))) {
-                    // Iterating over each post in the posts list
-                    writer.append(newPost.getId() + "," + newPost.getContent() + "," + newPost.getAuthor()  + "," + newPost.getLikes()  + "," + newPost.getShares()  + "," +  newPost.getDateTime());
+                    // append new post inside the csv file
+                    writer.append(newPost.getId()
+                            + "," + newPost.getContent()
+                            + "," + newPost.getAuthor()
+                            + "," + newPost.getLikes()
+                            + "," + newPost.getShares()
+                            + "," + newPost.getDateTime());
                     writer.newLine();
                     System.out.println("INSIDE WRITERS");
 
-//                    for (Posts post : postsList) {
-//                        // Writing each post's details to the CSV file
-//                        writer.append(post.getId() + "," + newPost.getContent() + "," + newPost.getAuthor()  + "," + newPost.getLikes()  + "," + newPost.getShares()  + "," +  newPost.getDateTime());
-//                        // Adding a new line after each post's details
-//                        writer.newLine();
-//                        System.out.println("INSIDE WRITERS");
-//                    }
                 }
             }catch (IOException e){
                 e.printStackTrace();
@@ -385,6 +381,51 @@ public class DatabaseController {
         }
 
         return null;
+    }
+
+    public static void deletePost(ActionEvent event, String postId){
+        String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
+        Path pathToCsv = Paths.get(csvFile);
+        String line = "";
+        String delimiter = ",";
+        List<Posts> postsList = new ArrayList<>();
+        // reading csv file
+        try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
+            // skipping the header
+            br.readLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(delimiter);
+                postsList.add(new Posts(Integer.parseInt(fields[0]), fields[1], fields[2], Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]));
+            }
+
+            postsList.removeIf(post -> post.getId() == Integer.parseInt(postId));
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
+                // Writing the header
+                writer.write("ID,content,author,likes,shares,date-time");
+                writer.newLine();
+
+                // Writing updated posts
+                for (Posts post : postsList) {
+                    writer.append(post.getId()
+                            + "," + post.getContent()
+                            + "," + post.getAuthor()
+                            + "," + post.getLikes()
+                            + "," + post.getShares()
+                            + "," + post.getDateTime());
+                    writer.newLine();
+                    System.out.println("INSIDE WRITERS");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

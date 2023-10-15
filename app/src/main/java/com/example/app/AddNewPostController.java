@@ -46,7 +46,7 @@ public class AddNewPostController implements Initializable {
             }
         });
 
-        addThePost_button.setOnAction(new EventHandler<ActionEvent>() {
+            addThePost_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DatabaseController.addNewPost(event,

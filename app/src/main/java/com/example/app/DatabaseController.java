@@ -11,6 +11,8 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -315,6 +317,39 @@ public class DatabaseController {
             System.out.println("The post has been added to the collection!");
 
             System.out.println(newPost);
+
+            try {
+                // Check if the size of the file is 0 (meaning the file is empty)
+                if (Files.size(Paths.get(csvFile)) == 0) {
+                    // If the file is empty, create a BufferedWriter to write to the file
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile, true))) {
+                        // Writing the header to the CSV file
+                        writer.append("ID,content,author,likes,shares,date-time");
+                        // Adding a new line after the header
+                        writer.newLine();
+                        System.out.println("INSIDE HEADERS");
+                    }
+                }
+
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile, true))) {
+                    // Iterating over each post in the posts list
+                    writer.append(newPost.getId() + "," + newPost.getContent() + "," + newPost.getAuthor()  + "," + newPost.getLikes()  + "," + newPost.getShares()  + "," +  newPost.getDateTime());
+                    writer.newLine();
+                    System.out.println("INSIDE WRITERS");
+
+//                    for (Posts post : postsList) {
+//                        // Writing each post's details to the CSV file
+//                        writer.append(post.getId() + "," + newPost.getContent() + "," + newPost.getAuthor()  + "," + newPost.getLikes()  + "," + newPost.getShares()  + "," +  newPost.getDateTime());
+//                        // Adding a new line after each post's details
+//                        writer.newLine();
+//                        System.out.println("INSIDE WRITERS");
+//                    }
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+
 
         } catch (IOException e) {
             e.printStackTrace();

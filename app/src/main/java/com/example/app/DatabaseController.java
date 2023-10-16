@@ -20,6 +20,7 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class DatabaseController {
@@ -362,6 +363,7 @@ public class DatabaseController {
         String line = "";
         String delimiter = ",";
         List<Posts> postsList = new ArrayList<>();
+
         // reading csv file
         try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
             // skipping the header
@@ -399,6 +401,7 @@ public class DatabaseController {
                 postsList.add(new Posts(Integer.parseInt(fields[0]), fields[1], fields[2], Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]));
             }
 
+            //lambda function to delete the post by id
             postsList.removeIf(post -> post.getId() == Integer.parseInt(postId));
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
@@ -426,6 +429,51 @@ public class DatabaseController {
         }
 
 
+    }
+
+    public static List<Posts> mostLikes(ActionEvent event, int n_likes){
+
+        String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
+        Path pathToCsv = Paths.get(csvFile);
+        String line = "";
+        String delimiter = ",";
+        List<Posts> postsList = new ArrayList<>();
+        List<Posts> returnedPosts = new ArrayList<>();
+        // reading csv file
+        try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
+            // skipping the header
+            br.readLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(delimiter);
+                postsList.add(new Posts(Integer.parseInt(fields[0]), fields[1], fields[2], Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]));
+            }
+            postsList.sort(Comparator.comparingInt(Posts::getLikes).reversed());
+            for (int i = 0; i < n_likes; i++){
+
+                returnedPosts.add(postsList.get(i));
+                System.out.println(returnedPosts);
+
+            }
+            return returnedPosts;
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+//        postsList.sort(Comparator.comparingInt(Posts::getLikes).reversed());
+//        for (int i = 0; i < postsList.size(); i++){
+//            System.out.printf("%d)  %d  |  %s  |  %d\n",
+//                    i+1,
+//                    postsList.get(i).id,
+//                    postsList.get(i).getDateTime(),
+//                    postsList.get(i).getLikes());
+//        }
     }
 
 }

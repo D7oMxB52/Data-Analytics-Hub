@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.MainMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.MainMenuController">
    <children>
       <Label layoutX="128.0" layoutY="71.0" text="Welcome back">
          <font>
@@ -17,27 +17,32 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="logout_button" layoutX="41.0" layoutY="326.0" mnemonicParsing="false" text="logout">
+      <Button fx:id="logout_button" layoutX="45.0" layoutY="486.0" mnemonicParsing="false" text="logout">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="editprofile_button" layoutX="431.0" layoutY="326.0" mnemonicParsing="false" text="Edit Profile">
+      <Button fx:id="editprofile_button" layoutX="699.0" layoutY="486.0" mnemonicParsing="false" text="Edit Profile">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="addNewPost_button" layoutX="197.0" layoutY="140.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Add new post">
+      <Button fx:id="addNewPost_button" layoutX="324.0" layoutY="183.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Add new post">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="getPostById_button" layoutX="197.0" layoutY="190.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="get post by ID">
+      <Button fx:id="getPostById_button" layoutX="324.0" layoutY="233.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="get post by ID">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="deletePostById_button" layoutX="197.0" layoutY="239.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Delete Post By ID">
+      <Button fx:id="deletePostById_button" layoutX="324.0" layoutY="282.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Delete Post By ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="getTopNLikes_button" layoutX="324.0" layoutY="331.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Get Top N Likes">
          <font>
             <Font size="18.0" />
          </font>

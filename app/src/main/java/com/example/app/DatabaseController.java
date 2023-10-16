@@ -431,14 +431,14 @@ public class DatabaseController {
 
     }
 
-    public static List<Posts> mostLikes(ActionEvent event, int n_likes){
+    public static StringBuilder mostLikes(ActionEvent event, int n_likes){
 
         String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
         Path pathToCsv = Paths.get(csvFile);
         String line = "";
         String delimiter = ",";
         List<Posts> postsList = new ArrayList<>();
-        List<Posts> returnedPosts = new ArrayList<>();
+        StringBuilder posts = new StringBuilder();
         // reading csv file
         try (BufferedReader br = Files.newBufferedReader(pathToCsv)) {
             // skipping the header
@@ -451,11 +451,21 @@ public class DatabaseController {
             postsList.sort(Comparator.comparingInt(Posts::getLikes).reversed());
             for (int i = 0; i < n_likes; i++){
 
-                returnedPosts.add(postsList.get(i));
-                System.out.println(returnedPosts);
+                posts.append(i+1+": ");
+                posts.append("ID:" + postsList.get(i).getId());
+                posts.append(", Author: " + postsList.get(i).getAuthor());
+                posts.append(", Likes: " + postsList.get(i).getLikes());
+                posts.append("\n");
+
+
+//                posts.append(i+1);
+//                posts.append(postsList.get(i).getId());
+//                posts.append(postsList.get(i).getAuthor());
+//                posts.append(postsList.get(i).getLikes());
 
             }
-            return returnedPosts;
+            System.out.println(posts);
+            return posts;
 
 
 

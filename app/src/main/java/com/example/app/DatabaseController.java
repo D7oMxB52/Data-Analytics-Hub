@@ -458,11 +458,6 @@ public class DatabaseController {
                 posts.append("\n");
 
 
-//                posts.append(i+1);
-//                posts.append(postsList.get(i).getId());
-//                posts.append(postsList.get(i).getAuthor());
-//                posts.append(postsList.get(i).getLikes());
-
             }
             System.out.println(posts);
             return posts;

@@ -1,4 +1,4 @@
-package com.example.app.functions;
+package com.example.app.model;
 
 public class Posts {
     int id;

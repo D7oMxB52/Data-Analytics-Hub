@@ -1,4 +1,4 @@
-package com.example.app.functions;
+package com.example.app.model;
 
 import java.util.List;
 import java.util.Optional;

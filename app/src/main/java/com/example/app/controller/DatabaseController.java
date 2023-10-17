@@ -1,7 +1,6 @@
-package com.example.app;
+package com.example.app.controller;
+import com.example.app.model.*;
 
-import com.example.app.functions.Posts;
-import com.example.app.functions.Search;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -54,7 +53,7 @@ public class DatabaseController {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 800, 800));
         stage.show();
     }
 
@@ -345,8 +344,6 @@ public class DatabaseController {
             }catch (IOException e){
                 e.printStackTrace();
             }
-
-
 
         } catch (IOException e) {
             e.printStackTrace();

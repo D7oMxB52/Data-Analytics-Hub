@@ -1,11 +1,11 @@
-package com.example.app;
+package com.example.app.controller;
 
+import com.example.app.controller.DatabaseController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;

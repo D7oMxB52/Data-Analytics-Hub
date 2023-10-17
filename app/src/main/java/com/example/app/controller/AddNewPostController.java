@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

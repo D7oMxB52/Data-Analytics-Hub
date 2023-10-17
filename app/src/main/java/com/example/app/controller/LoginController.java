@@ -1,5 +1,6 @@
-package com.example.app;
+package com.example.app.controller;
 
+import com.example.app.controller.DatabaseController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

@@ -33,6 +33,9 @@ public class MainMenuController implements Initializable {
     @FXML
     private Button getTopNLikes_button;
 
+    @FXML
+    private Button exportPostById_button;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,6 +78,13 @@ public class MainMenuController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DatabaseController.changeScene(event, "get_most_likes-view.fxml", "Get Top N Likes", null);
+            }
+        });
+
+        exportPostById_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DatabaseController.changeScene(event,"export_post-view.fxml","Export Post", null);
             }
         });
     }

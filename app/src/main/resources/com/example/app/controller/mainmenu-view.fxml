@@ -47,5 +47,10 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="exportPostById_button" layoutX="324.0" layoutY="379.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Export Post by ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

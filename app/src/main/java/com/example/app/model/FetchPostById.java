@@ -1,6 +1,7 @@
 package com.example.app.model;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,11 +42,27 @@ public class FetchPostById {
             }
 
             Search searchById = new Search(postId , postsList);
+            if (searchById.searchById() == null){
+                throw new NullPointerException();
+            }
             return searchById.searchById();
 
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Post ID must be a number!");
+            alert.show();
+
+        } catch (NullPointerException e){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Post ID does not Exist!");
+            alert.show();
+
+
         }
 
         return null;

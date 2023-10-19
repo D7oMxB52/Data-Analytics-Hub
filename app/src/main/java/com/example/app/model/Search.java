@@ -16,7 +16,9 @@ public class Search {
 
     }
 
-    public Posts searchById(){
+    public Posts searchById() throws NullPointerException{
+
+
         String found = null;
         Posts foundPost = new Posts();
         Optional<Posts> searchById = postsList.stream().filter(post -> post.getId() == numId).findFirst();
@@ -33,6 +35,8 @@ public class Search {
             System.out.println(found);
             return null;
         }
+
+
 
     }
 

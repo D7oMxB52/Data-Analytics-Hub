@@ -1,6 +1,7 @@
 package com.example.app.model;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,13 +38,26 @@ public class ExportPostById {
                         + "," + f.FetchPostById(event, postId).getDateTime());
                 writer.newLine();
 
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Post has been Exported  !");
+                alert.show();
+
             }
+
+
         }catch (IOException e){
             e.printStackTrace();
-        }
-        catch (NullPointerException e){
+        }catch (NullPointerException e){
             System.out.println("ID does not exist");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("ID does not exist, please try with existed ID");
+            alert.show();
+        }catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("ID must be numbers");
+            alert.show();
         }
+
 
     }
 

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -35,12 +36,22 @@ public class DeletePostController implements Initializable {
                 DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcomee", null);
             }
         });
+        try{
+            deletePostById_Button.setOnAction(new EventHandler<ActionEvent>() {
 
-        deletePostById_Button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                DatabaseController.deletePost(event, tf_insertedPostIdToDelete.getText());
-            }
-        });
+
+                @Override
+                public void handle(ActionEvent event) {
+                    DatabaseController.deletePost(event, tf_insertedPostIdToDelete.getText());
+                }
+
+
+            });
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Post ID must be a number!");
+            alert.show();
+        }
+
     }
 }

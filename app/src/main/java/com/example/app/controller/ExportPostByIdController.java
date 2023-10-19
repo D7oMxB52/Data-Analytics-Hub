@@ -46,8 +46,12 @@ public class ExportPostByIdController implements Initializable {
         exportPostById_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                File file = fc.showOpenDialog(new Stage());
 
+                // to save it from in specific extension (.csv)
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+                fc.getExtensionFilters().add(extFilter);
+                File file = fc.showSaveDialog(new Stage());
+                DatabaseController.exportPost(event, file, tf_IdToExport.getText());
 
             }
         });

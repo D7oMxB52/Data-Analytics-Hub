@@ -3,11 +3,17 @@ package com.example.app.model;
 import java.util.List;
 import java.util.Optional;
 public class Search {
+
+
     int numId;
     List<Posts> postsList;
     public Search(String numId, List<Posts> postsList) {
         this.numId = Integer.parseInt(numId);
         this.postsList = postsList;
+    }
+
+    public Search() {
+
     }
 
     public Posts searchById(){
@@ -16,7 +22,6 @@ public class Search {
         Optional<Posts> searchById = postsList.stream().filter(post -> post.getId() == numId).findFirst();
         if (searchById.isPresent()) {
             found = searchById.get().id+"  |  "+searchById.get().content+"  |  "+searchById.get().likes;
-            System.out.println(searchById.get().content);
             foundPost.setContent(searchById.get().content);
             foundPost.setAuthor(searchById.get().author);
             foundPost.setShares(searchById.get().shares);

@@ -6,11 +6,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddNewPostController implements Initializable {
+
+
+    FileChooser fc = new FileChooser();
 
     @FXML
     private TextField tf_postId;
@@ -49,13 +55,17 @@ public class AddNewPostController implements Initializable {
             addThePost_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                File file = fc.showOpenDialog(new Stage());
                 DatabaseController.addNewPost(event,
                         tf_postId.getText(),
                         tf_content.getText(),
                         tf_author.getText(),
                         tf_likes.getText(),
                         tf_shares.getText(),
-                        tf_date.getText());
+                        tf_date.getText(),
+                        file.getPath()
+                        );
+                System.out.println(file.getPath());
             }
         });
 

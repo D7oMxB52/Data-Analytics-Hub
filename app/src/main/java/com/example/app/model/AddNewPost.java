@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddNewPost {
-    public AddNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date){
+    public AddNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date, String path){
 
-        String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
+        String csvFile = path;
         Path pathToCsv = Paths.get(csvFile);
         String line = "";
         String delimiter = ",";
@@ -76,6 +76,10 @@ public class AddNewPost {
             e.printStackTrace();
         }
 
+
+    }
+
+    public AddNewPost() {
 
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -68,9 +69,9 @@ public class DatabaseController {
 
     }
 
-    public static void addNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date){
+    public static void addNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date, String path){
 
-        AddNewPost addNewPost = new AddNewPost(event, postId, content, author, likes, shares, date);
+        AddNewPost addNewPost = new AddNewPost(event, postId, content, author, likes, shares, date, path);
 
     }
 
@@ -94,6 +95,13 @@ public class DatabaseController {
 
         TopNLikes topNLikes = new TopNLikes();
         return topNLikes.TopNLikes(n_likes);
+
+    }
+
+    public static void exportPost(ActionEvent event, File file, String postId){
+
+        ExportPostById exportPostById = new ExportPostById(event, file,postId);
+
 
     }
 }

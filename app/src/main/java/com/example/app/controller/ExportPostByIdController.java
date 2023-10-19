@@ -39,7 +39,7 @@ public class ExportPostByIdController implements Initializable {
         backToMainMenu_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcome", null);
+                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcome", null,null);
             }
         });
 

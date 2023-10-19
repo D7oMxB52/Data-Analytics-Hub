@@ -15,20 +15,19 @@ import java.io.IOException;
 public class DatabaseController {
 
 
-    public static void changeScene(ActionEvent event, String fxmlFile,String title, String username){
+    public static void changeScene(ActionEvent event, String fxmlFile,String title, String firstName, String lastName){
 
 
         Parent root = null;
 
         // scene loader
-        if (username != null){
+        if (firstName != null){
             try{
                 FXMLLoader loader = new FXMLLoader(DatabaseController.class.getResource(fxmlFile));
                 root = loader.load();
                 MainMenuController mainMenuController = loader.getController();
-                mainMenuController.setUserInfo(username);
-//                EditProfileController editProfileController = loader.getController();
-//                editProfileController.setUserInfo(username);
+                mainMenuController.setUserInfo(firstName, lastName);
+
 
             }   catch (IOException e){
                 e.printStackTrace();
@@ -42,7 +41,7 @@ public class DatabaseController {
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 800, 800));
+        stage.setScene(new Scene(root, 800,569));
         stage.show();
     }
 
@@ -101,7 +100,6 @@ public class DatabaseController {
     public static void exportPost(ActionEvent event, File file, String postId){
 
         ExportPostById exportPostById = new ExportPostById(event, file,postId);
-
 
     }
 }

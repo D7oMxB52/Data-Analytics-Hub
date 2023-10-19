@@ -40,7 +40,7 @@ public class Signup {
                 psInsert.executeUpdate();
 
 
-                changeScene(event, "mainmenu-view.fxml","Welcomee", username);
+                changeScene(event, "mainmenu-view.fxml","Welcomee", firstName,lastName);
             }
         }
         catch (SQLIntegrityConstraintViolationException e) {

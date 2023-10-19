@@ -43,7 +43,7 @@ public class EditProfile {
                 System.out.println(psInsert.executeUpdate());
                 psInsert.executeUpdate();
 
-                changeScene(event, "mainmenu-view.fxml","Welcomee", newUsername);
+                changeScene(event, "mainmenu-view.fxml","Welcomee", firstName,lastName);
             }
         }
         catch (SQLException e){

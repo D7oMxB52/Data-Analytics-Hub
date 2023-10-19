@@ -12,8 +12,12 @@ import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
 
+
     @FXML
-    public Label filled_username;
+    public Label fill_firstName;
+
+    @FXML
+    public Label fill_lastName;
 
     @FXML
     private Button logout_button;
@@ -42,54 +46,55 @@ public class MainMenuController implements Initializable {
         logout_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "landing-view.fxml","Logged out", null);
+                DatabaseController.changeScene(actionEvent, "landing-view.fxml","Logged out", null,null);
             }
         });
 
         editprofile_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "profile_edit-view.fxml","Edit profile", null);
+                DatabaseController.changeScene(actionEvent, "profile_edit-view.fxml","Edit profile", null,null);
             }
         });
 
         addNewPost_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DatabaseController.changeScene(event, "add_new_post-view.fxml", "Add new Post", null);
+                DatabaseController.changeScene(event, "add_new_post-view.fxml", "Add new Post", null,null);
             }
         });
 
         getPostById_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DatabaseController.changeScene(event, "get_post_by_id-view.fxml", "Get User's Post", null);
+                DatabaseController.changeScene(event, "get_post_by_id-view.fxml", "Get User's Post", null,null);
             }
         });
 
         deletePostById_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DatabaseController.changeScene(event, "delete_post-view.fxml", "Delete Post", null);
+                DatabaseController.changeScene(event, "delete_post-view.fxml", "Delete Post", null,null);
             }
         });
 
         getTopNLikes_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DatabaseController.changeScene(event, "get_most_likes-view.fxml", "Get Top N Likes", null);
+                DatabaseController.changeScene(event, "get_most_likes-view.fxml", "Get Top N Likes", null,null);
             }
         });
 
         exportPostById_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DatabaseController.changeScene(event,"export_post-view.fxml","Export Post", null);
+                DatabaseController.changeScene(event,"export_post-view.fxml","Export Post", null,null);
             }
         });
     }
 
-    public void setUserInfo(String username){
-        filled_username.setText(username);
+    public void setUserInfo(String firstName, String lastName){
+        fill_firstName.setText(firstName);
+        fill_lastName.setText(lastName);
     }
 }

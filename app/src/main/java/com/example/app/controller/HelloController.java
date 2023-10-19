@@ -24,14 +24,14 @@ public class HelloController implements Initializable {
         login_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "login-view.fxml","Login Page",null);
+                DatabaseController.changeScene(actionEvent, "login-view.fxml","Login Page",null,null);
             }
         });
 
         signup_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "signup-view.fxml","signup Page",null);
+                DatabaseController.changeScene(actionEvent, "signup-view.fxml","signup Page",null,null);
 
             }
         });

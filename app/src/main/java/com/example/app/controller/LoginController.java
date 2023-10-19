@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
         backToMenu_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent ,"landing-view.fxml","Landing Page",null);
+                DatabaseController.changeScene(actionEvent ,"landing-view.fxml","Landing Page",null,null);
             }
         });
 

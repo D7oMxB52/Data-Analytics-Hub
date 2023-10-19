@@ -33,13 +33,11 @@ public class DeletePostController implements Initializable {
         backToMainMenu_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcomee", null);
+                DatabaseController.changeScene(actionEvent, "mainmenu-view.fxml","Welcome", null,null);
             }
         });
         try{
             deletePostById_Button.setOnAction(new EventHandler<ActionEvent>() {
-
-
                 @Override
                 public void handle(ActionEvent event) {
                     DatabaseController.deletePost(event, tf_insertedPostIdToDelete.getText());

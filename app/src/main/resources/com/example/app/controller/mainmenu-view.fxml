@@ -5,14 +5,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.controller.MainMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.controller.MainMenuController">
    <children>
-      <Label layoutX="128.0" layoutY="71.0" text="Welcome back">
+      <Label layoutX="343.0" layoutY="23.0" text="Welcome back">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="filled_username" layoutX="300.0" layoutY="71.0" prefHeight="32.0" prefWidth="253.0">
+      <Label fx:id="fill_firstName" layoutX="300.0" layoutY="71.0" prefHeight="32.0" prefWidth="174.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="fill_lastName" layoutX="492.0" layoutY="71.0" prefHeight="32.0" prefWidth="174.0">
          <font>
             <Font size="22.0" />
          </font>
@@ -22,7 +27,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="editprofile_button" layoutX="699.0" layoutY="486.0" mnemonicParsing="false" text="Edit Profile">
+      <Button fx:id="editprofile_button" layoutX="611.0" layoutY="486.0" mnemonicParsing="false" text="Edit Profile">
          <font>
             <Font size="18.0" />
          </font>
@@ -48,6 +53,11 @@
          </font>
       </Button>
       <Button fx:id="exportPostById_button" layoutX="324.0" layoutY="379.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" text="Export Post by ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="upgradeToVIP_button" layoutX="343.0" layoutY="478.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="167.0" text="Upgrade to VIP">
          <font>
             <Font size="18.0" />
          </font>

@@ -33,6 +33,7 @@ public class Login {
                     String fetchPassword = resultSet.getString("password");
                     String fetchedFirstName = resultSet.getString("first_name");
                     String fetchedLastName = resultSet.getString("last_name");
+
                     System.out.println(fetchPassword);
 
                     // if the password is correct:

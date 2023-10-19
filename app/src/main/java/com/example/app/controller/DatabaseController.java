@@ -14,8 +14,9 @@ import java.io.IOException;
 
 public class DatabaseController {
 
-
-    public static void changeScene(ActionEvent event, String fxmlFile,String title, String firstName, String lastName){
+    static String fName;
+    static String lName;
+    public static void changeScene(ActionEvent event, String fxmlFile, String title, String firstName, String lastName){
 
 
         Parent root = null;
@@ -27,6 +28,9 @@ public class DatabaseController {
                 root = loader.load();
                 MainMenuController mainMenuController = loader.getController();
                 mainMenuController.setUserInfo(firstName, lastName);
+                fName = firstName;
+                lName = lastName;
+
 
 
             }   catch (IOException e){
@@ -44,7 +48,6 @@ public class DatabaseController {
         stage.setScene(new Scene(root, 800,569));
         stage.show();
     }
-
 
     // signup method
     public static void signUp(ActionEvent event, String username, String password, String firstName, String lastName){
@@ -100,6 +103,11 @@ public class DatabaseController {
     public static void exportPost(ActionEvent event, File file, String postId){
 
         ExportPostById exportPostById = new ExportPostById(event, file,postId);
+
+    }
+
+    public static void upgradeToVIP(ActionEvent event, String firstName, String lastName){
+        UpgradeToVIP upgradeToVIPUser = new UpgradeToVIP(event, fName, lName);
 
     }
 }

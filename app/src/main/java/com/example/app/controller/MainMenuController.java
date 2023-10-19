@@ -40,6 +40,8 @@ public class MainMenuController implements Initializable {
     @FXML
     private Button exportPostById_button;
 
+    @FXML
+    private Button upgradeToVIPView_button;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,6 +93,14 @@ public class MainMenuController implements Initializable {
                 DatabaseController.changeScene(event,"export_post-view.fxml","Export Post", null,null);
             }
         });
+        upgradeToVIPView_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DatabaseController.changeScene(event, "upgrade-view.fxml", "UPGRADE TO VIP", null, null);
+            }
+        });
+
+
     }
 
     public void setUserInfo(String firstName, String lastName){

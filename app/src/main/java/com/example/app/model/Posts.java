@@ -1,12 +1,12 @@
 package com.example.app.model;
 
 public class Posts {
-    int id;
-    String content;
-    String author;
-    int likes;
-    int shares;
-    String dateTime;
+    public int id;
+    public String content;
+    public String author;
+    public int likes;
+    public int shares;
+    public String dateTime;
 
     public Posts() {
     }

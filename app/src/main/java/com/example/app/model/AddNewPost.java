@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddNewPost {
+public class AddNewPost extends Posts{
     public AddNewPost(ActionEvent event, String postId, String content, String author, String likes, String shares, String date, String path){
 
         String csvFile = path;

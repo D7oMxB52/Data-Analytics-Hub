@@ -14,17 +14,17 @@ import java.util.List;
 
 public class FetchPostById {
 
-    private ActionEvent ev;
+    private ActionEvent event;
 
     private String postId;
     public FetchPostById(ActionEvent event, String postId) {
-        this.ev = event;
+        this.event = event;
         this.postId = postId;
     }
 
 
 
-    public Posts FetchPostById(ActionEvent ev, String postId){
+    public Posts FetchPostById(ActionEvent event, String postId){
         String csvFile = "C:\\Users\\devab\\Documents\\GitHub\\Data-Analytics-Hub\\app\\src\\main\\java\\com\\example\\app\\posts.csv";
         Path pathToCsv = Paths.get(csvFile);
         String line = "";
